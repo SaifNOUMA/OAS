@@ -11,9 +11,9 @@ As a high level depiction, OSA provides utility and cryptographic functions for 
 ## Contents
 
 The repository includes the following implementations:
-* [DataGen] (datagen/): contains utility functions to generate a set of random log entries
-* [FIPOSA] (fiposa/): contains the implementation of our first scheme FIne-grained Post-audit OSA (FIPOSA).
-* [SOCOSA] (socosa/): contains the implementation of our first scheme Signer-Optimal Coarse-grained OSA (SOCOSA).
+* [`DataGen`] (datagen/): contains utility functions to generate a set of random log entries
+* [`FIPOSA`] (fiposa/): contains the implementation of our first scheme FIne-grained Post-audit OSA (FIPOSA).
+* [`SOCOSA`] (socosa/): contains the implementation of our first scheme Signer-Optimal Coarse-grained OSA (SOCOSA).
 
 
 <!-- 

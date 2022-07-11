@@ -1,4 +1,4 @@
-# OAS
+# OSA
 Optimal Signatures for Audit
 
 

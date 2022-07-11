@@ -1,0 +1,83 @@
+FOPAS Key Generation Completed!
+
+INFO:  Signature generation phase is about to start ...
+INFO:  Sig gen reaches epoch 00016383 [average time = 1.38us]
+INFO:  Sig gen reaches epoch 00032767 [average time = 1.38us]
+INFO:  Sig gen reaches epoch 00049151 [average time = 1.41us]
+INFO:  Sig gen reaches epoch 00065535 [average time = 1.44us]
+INFO:  Sig gen reaches epoch 00081919 [average time = 1.44us]
+INFO:  Sig gen reaches epoch 00098303 [average time = 1.43us]
+INFO:  Sig gen reaches epoch 00114687 [average time = 1.42us]
+INFO:  Sig gen reaches epoch 00131071 [average time = 1.43us]
+INFO:  Sig gen reaches epoch 00147455 [average time = 1.43us]
+INFO:  Sig gen reaches epoch 00163839 [average time = 1.45us]
+INFO:  Sig gen reaches epoch 00180223 [average time = 1.45us]
+INFO:  Sig gen reaches epoch 00196607 [average time = 1.44us]
+INFO:  Sig gen reaches epoch 00212991 [average time = 1.43us]
+INFO:  Sig gen reaches epoch 00229375 [average time = 1.44us]
+INFO:  Sig gen reaches epoch 00245759 [average time = 1.44us]
+INFO:  Sig gen reaches epoch 00262143 [average time = 1.45us]
+INFO:  Signature generation successfully finished in 97.13s
+INFO:  Average sig gen time = 1.45us
+
+INFO:  Signature verification phase is about to start ...
+INFO:  Sig ver reaches epoch 00016384 [average time = 0.18ms]
+INFO:  Dsitill reaches epoch 00016384 [average time = 0.00ms]
+
+INFO:  Sig ver reaches epoch 00032768 [average time = 0.18ms]
+INFO:  Dsitill reaches epoch 00032768 [average time = 0.00ms]
+
+INFO:  Sig ver reaches epoch 00049152 [average time = 0.18ms]
+INFO:  Dsitill reaches epoch 00049152 [average time = 0.00ms]
+
+INFO:  Sig ver reaches epoch 00065536 [average time = 0.18ms]
+INFO:  Dsitill reaches epoch 00065536 [average time = 0.00ms]
+
+INFO:  Sig ver reaches epoch 00081920 [average time = 0.18ms]
+INFO:  Dsitill reaches epoch 00081920 [average time = 0.00ms]
+
+INFO:  Sig ver reaches epoch 00098304 [average time = 0.18ms]
+INFO:  Dsitill reaches epoch 00098304 [average time = 0.00ms]
+
+INFO:  Sig ver reaches epoch 00114688 [average time = 0.18ms]
+INFO:  Dsitill reaches epoch 00114688 [average time = 0.00ms]
+
+INFO:  Sig ver reaches epoch 00131072 [average time = 0.18ms]
+INFO:  Dsitill reaches epoch 00131072 [average time = 0.00ms]
+
+INFO:  Sig ver reaches epoch 00147456 [average time = 0.18ms]
+INFO:  Dsitill reaches epoch 00147456 [average time = 0.00ms]
+
+INFO:  Sig ver reaches epoch 00163840 [average time = 0.18ms]
+INFO:  Dsitill reaches epoch 00163840 [average time = 0.00ms]
+
+INFO:  Sig ver reaches epoch 00180224 [average time = 0.17ms]
+INFO:  Dsitill reaches epoch 00180224 [average time = 0.00ms]
+
+INFO:  Sig ver reaches epoch 00196608 [average time = 0.17ms]
+INFO:  Dsitill reaches epoch 00196608 [average time = 0.00ms]
+
+INFO:  Sig ver reaches epoch 00212992 [average time = 0.17ms]
+INFO:  Dsitill reaches epoch 00212992 [average time = 0.00ms]
+
+INFO:  Sig ver reaches epoch 00229376 [average time = 0.17ms]
+INFO:  Dsitill reaches epoch 00229376 [average time = 0.00ms]
+
+INFO:  Sig ver reaches epoch 00245760 [average time = 0.17ms]
+INFO:  Dsitill reaches epoch 00245760 [average time = 0.00ms]
+
+INFO:  Sig ver reaches epoch 00262144 [average time = 0.17ms]
+INFO:  Dsitill reaches epoch 00262144 [average time = 0.00ms]
+
+INFO:  Signature verification successfully finished in 45.30s
+INFO:  Average sig ver time = 0.17ms
+INFO:  Failure rate = 0.99% ; #failed items = 2606
+
+INFO:  Distillation phase successfully finished in 0.29s
+
+INFO:  Saving the public key for audit verification ...
+
+INFO:  Saving the public key successfully finished.
+
+INFO:  Auditor investigation is about to start ...
+ERROR: AVer failed !

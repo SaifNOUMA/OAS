@@ -1,0 +1,19 @@
+FOPAS Key Generation Completed!
+
+INFO:  Signature generation phase is about to start ...
+INFO:  Signature generation successfully finished in 0.85s
+INFO:  Average sig gen time = 1.62us
+
+INFO:  Signature verification phase is about to start ...
+INFO:  Signature verification successfully finished in 0.38s
+INFO:  Average sig ver time = 0.19ms
+INFO:  Failure rate = 1.03% ; #failed items = 21
+
+INFO:  Distillation phase successfully finished in 0.00s
+
+INFO:  Saving the public key for audit verification ...
+
+INFO:  Saving the public key successfully finished.
+
+INFO:  Auditor investigation is about to start ...
+INFO:  Audit verification successfully finished in 0.36s

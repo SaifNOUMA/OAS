@@ -1,0 +1,51 @@
+FOPAS Key Generation Completed!
+
+INFO:  Signature generation phase is about to start ...
+INFO:  Sig gen reaches epoch 00016383 [average time = 1.27us]
+INFO:  Sig gen reaches epoch 00032767 [average time = 1.29us]
+INFO:  Sig gen reaches epoch 00049151 [average time = 1.28us]
+INFO:  Sig gen reaches epoch 00065535 [average time = 1.27us]
+INFO:  Sig gen reaches epoch 00081919 [average time = 1.27us]
+INFO:  Sig gen reaches epoch 00098303 [average time = 1.27us]
+INFO:  Sig gen reaches epoch 00114687 [average time = 1.27us]
+INFO:  Sig gen reaches epoch 00131071 [average time = 1.27us]
+INFO:  Signature generation successfully finished in 42.53s
+INFO:  Average sig gen time = 1.27us
+
+INFO:  Signature verification phase is about to start ...
+INFO:  Sig ver reaches epoch 00016384 [average time = 0.14ms]
+INFO:  Dsitill reaches epoch 00016384 [average time = 0.00ms]
+
+INFO:  Sig ver reaches epoch 00032768 [average time = 0.14ms]
+INFO:  Dsitill reaches epoch 00032768 [average time = 0.00ms]
+
+INFO:  Sig ver reaches epoch 00049152 [average time = 0.14ms]
+INFO:  Dsitill reaches epoch 00049152 [average time = 0.00ms]
+
+INFO:  Sig ver reaches epoch 00065536 [average time = 0.14ms]
+INFO:  Dsitill reaches epoch 00065536 [average time = 0.00ms]
+
+INFO:  Sig ver reaches epoch 00081920 [average time = 0.14ms]
+INFO:  Dsitill reaches epoch 00081920 [average time = 0.00ms]
+
+INFO:  Sig ver reaches epoch 00098304 [average time = 0.14ms]
+INFO:  Dsitill reaches epoch 00098304 [average time = 0.00ms]
+
+INFO:  Sig ver reaches epoch 00114688 [average time = 0.14ms]
+INFO:  Dsitill reaches epoch 00114688 [average time = 0.00ms]
+
+INFO:  Sig ver reaches epoch 00131072 [average time = 0.14ms]
+INFO:  Dsitill reaches epoch 00131072 [average time = 0.00ms]
+
+INFO:  Signature verification successfully finished in 18.91s
+INFO:  Average sig ver time = 0.14ms
+INFO:  Failure rate = 1.00% ; #failed items = 1305
+
+INFO:  Distillation phase successfully finished in 0.12s
+
+INFO:  Saving the public key for audit verification ...
+
+INFO:  Saving the public key successfully finished.
+
+INFO:  Auditor investigation is about to start ...
+ERROR: AVer failed !

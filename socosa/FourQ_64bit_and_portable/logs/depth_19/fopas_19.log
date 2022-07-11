@@ -1,0 +1,83 @@
+FOPAS Key Generation Completed!
+
+INFO:  Signature generation phase is about to start ...
+INFO:  Sig gen reaches epoch 00016383 [average time = 1.27us]
+INFO:  Sig gen reaches epoch 00032767 [average time = 1.25us]
+INFO:  Sig gen reaches epoch 00049151 [average time = 1.25us]
+INFO:  Sig gen reaches epoch 00065535 [average time = 1.26us]
+INFO:  Sig gen reaches epoch 00081919 [average time = 1.26us]
+INFO:  Sig gen reaches epoch 00098303 [average time = 1.29us]
+INFO:  Sig gen reaches epoch 00114687 [average time = 1.30us]
+INFO:  Sig gen reaches epoch 00131071 [average time = 1.29us]
+INFO:  Sig gen reaches epoch 00147455 [average time = 1.29us]
+INFO:  Sig gen reaches epoch 00163839 [average time = 1.28us]
+INFO:  Sig gen reaches epoch 00180223 [average time = 1.28us]
+INFO:  Sig gen reaches epoch 00196607 [average time = 1.28us]
+INFO:  Sig gen reaches epoch 00212991 [average time = 1.28us]
+INFO:  Sig gen reaches epoch 00229375 [average time = 1.28us]
+INFO:  Sig gen reaches epoch 00245759 [average time = 1.27us]
+INFO:  Sig gen reaches epoch 00262143 [average time = 1.27us]
+INFO:  Sig gen reaches epoch 00278527 [average time = 1.27us]
+INFO:  Sig gen reaches epoch 00294911 [average time = 1.27us]
+INFO:  Sig gen reaches epoch 00311295 [average time = 1.27us]
+INFO:  Sig gen reaches epoch 00327679 [average time = 1.27us]
+INFO:  Sig gen reaches epoch 00344063 [average time = 1.27us]
+INFO:  Sig gen reaches epoch 00360447 [average time = 1.26us]
+INFO:  Sig gen reaches epoch 00376831 [average time = 1.26us]
+INFO:  Sig gen reaches epoch 00393215 [average time = 1.26us]
+INFO:  Sig gen reaches epoch 00409599 [average time = 1.26us]
+INFO:  Sig gen reaches epoch 00425983 [average time = 1.26us]
+INFO:  Sig gen reaches epoch 00442367 [average time = 1.26us]
+INFO:  Sig gen reaches epoch 00458751 [average time = 1.26us]
+INFO:  Sig gen reaches epoch 00475135 [average time = 1.26us]
+INFO:  Sig gen reaches epoch 00491519 [average time = 1.26us]
+INFO:  Sig gen reaches epoch 00507903 [average time = 1.26us]
+INFO:  Sig gen reaches epoch 00524287 [average time = 1.26us]
+INFO:  Signature generation successfully finished in 168.95s
+INFO:  Average sig gen time = 1.26us
+
+INFO:  Signature verification phase is about to start ...
+INFO:  Sig ver reaches epoch 00016384 [average time = 0.14ms]
+INFO:  Dsitill reaches epoch 00016384 [average time = 0.00ms]
+
+INFO:  Sig ver reaches epoch 00032768 [average time = 0.14ms]
+INFO:  Dsitill reaches epoch 00032768 [average time = 0.00ms]
+
+INFO:  Sig ver reaches epoch 00049152 [average time = 0.14ms]
+INFO:  Dsitill reaches epoch 00049152 [average time = 0.00ms]
+
+INFO:  Sig ver reaches epoch 00065536 [average time = 0.14ms]
+INFO:  Dsitill reaches epoch 00065536 [average time = 0.00ms]
+
+INFO:  Sig ver reaches epoch 00081920 [average time = 0.14ms]
+INFO:  Dsitill reaches epoch 00081920 [average time = 0.00ms]
+
+INFO:  Sig ver reaches epoch 00098304 [average time = 0.14ms]
+INFO:  Dsitill reaches epoch 00098304 [average time = 0.00ms]
+
+INFO:  Sig ver reaches epoch 00114688 [average time = 0.14ms]
+INFO:  Dsitill reaches epoch 00114688 [average time = 0.00ms]
+
+INFO:  Sig ver reaches epoch 00131072 [average time = 0.14ms]
+INFO:  Dsitill reaches epoch 00131072 [average time = 0.00ms]
+
+INFO:  Sig ver reaches epoch 00147456 [average time = 0.14ms]
+INFO:  Dsitill reaches epoch 00147456 [average time = 0.00ms]
+
+INFO:  Sig ver reaches epoch 00163840 [average time = 0.14ms]
+INFO:  Dsitill reaches epoch 00163840 [average time = 0.00ms]
+
+INFO:  Sig ver reaches epoch 00180224 [average time = 0.14ms]
+INFO:  Dsitill reaches epoch 00180224 [average time = 0.00ms]
+
+INFO:  Sig ver reaches epoch 00196608 [average time = 0.14ms]
+INFO:  Dsitill reaches epoch 00196608 [average time = 0.00ms]
+
+INFO:  Sig ver reaches epoch 00212992 [average time = 0.14ms]
+INFO:  Dsitill reaches epoch 00212992 [average time = 0.00ms]
+
+INFO:  Sig ver reaches epoch 00229376 [average time = 0.14ms]
+INFO:  Dsitill reaches epoch 00229376 [average time = 0.00ms]
+
+INFO:  Sig ver reaches epoch 00245760 [average time = 0.14ms]
+INFO:  Dsitill reaches epoch 00245760 [average time = 

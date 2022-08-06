@@ -6,7 +6,6 @@
 #include <string>
 #include <time.h>
 #include <openssl/rand.h>
-
 #define NUM_CHUNKS 128
 
 
@@ -15,11 +14,11 @@ using namespace std;
 int main (int argc, char *argv[])
 {
     static uint8_t logdata[1000000000L];
-    ofstream    output_file;
-    double      gen_time = 0.0, store_time = 0.0;
-    clock_t     t0, t1;
     char*       path2outfile;
     size_t      outfile_len;
+    double      gen_time = 0.0, store_time = 0.0;
+    clock_t     t0, t1;
+    ofstream    output_file;
 
 
     outfile_len = atoi(argv[1]);
@@ -42,8 +41,8 @@ int main (int argc, char *argv[])
     }
     output_file.close();
 
-    printf("DEBUG: Data generation passed successfully in %.2f s.\n",       ((double) (gen_time)) / (CLOCKS_PER_SEC) );
-    printf("DEBUG: Storing audit data passed successfully in %.2f s.\n",    ((double) (store_time)) / (CLOCKS_PER_SEC) );
+    printf("DEBUG: Data generation passed successfully in %.2f s.\n", ((double) (gen_time)) / (CLOCKS_PER_SEC) );
+    printf("DEBUG: Storing audit data passed successfully in %.2f s.\n", ((double) (store_time)) / (CLOCKS_PER_SEC) );
 
 
    return 0; 

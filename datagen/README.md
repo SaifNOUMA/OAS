@@ -4,5 +4,7 @@ This folder contains a simple program to generate random data. It stores locally
 
 ## Usage
 
-'{g++ data_gen.cpp -lssl -lcrypto}'
+```
+    g++ data_gen.cpp -lssl -lcrypto
+```
 

@@ -1,6 +1,6 @@
 # Data Generation
 
-This folder contains a simple program to generate random data. It stores locally, and we consider it as out audit logs dataset.
+This folder contains a simple program to generate random data. It stores locally, and we consider it as our audit logs dataset.
 
 ## Usage
 

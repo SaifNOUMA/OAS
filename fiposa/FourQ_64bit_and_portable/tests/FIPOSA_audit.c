@@ -71,7 +71,7 @@ int main(int argc, char *argv[])
     printf("\nINFO:  Auditor investigation is about to start ...\n");
     for (int i = 0 ; i < 100 ; i++) {
         t0 = clock();
-        if (ECCRYPTO_SUCCESS != (status = FOPAS_AuditVer(pk, 1 << SCT_L1, SCT_L1, SCT_L2, &audit_valid, (char*) "../../fopas/FourQ_64bit_and_portable/data/logs.txt")))
+        if (ECCRYPTO_SUCCESS != (status = FIPOSA_AuditVer(pk, 1 << SCT_L1, SCT_L1, SCT_L2, &audit_valid, (char*) "../../fopas/FourQ_64bit_and_portable/data/logs.txt")))
         {
             printf("ERROR: AVer failed !\n");
             return 1;

@@ -12,20 +12,29 @@
 #include <cstring>
 
 
-int sha256_i(uint8_t* message, size_t messagelen,
+/*
+ *  Function:       sha256_i: 
+ *
+*/
+int sha256_i(uint8_t* msg, size_t msglen,
              uint8_t* hash, int counter)
 {
-    uint8_t prior_hash[messagelen + sizeof(counter)];
+    uint8_t prior_hash[msglen + sizeof(counter)];
 
     memset(prior_hash, sizeof(prior_hash), 0);
-    memcpy(prior_hash, message, messagelen);
-    memcpy(prior_hash + messagelen, (uint8_t*) &counter, sizeof(counter));
+    memcpy(prior_hash, msg, msglen);
+    memcpy(prior_hash + msglen, (uint8_t*) &counter, sizeof(counter));
 
     if (NULL == SHA256(prior_hash, sizeof(prior_hash), hash))                                 { return 0; }
 
     return 1;
 }
 
+
+/*
+ *  Function:       print_hex: 
+ *
+*/
 void print_hex(unsigned char* arr, int len)
 {
     int i;
@@ -35,6 +44,11 @@ void print_hex(unsigned char* arr, int len)
     printf("\n");
 }
 
+
+/*
+ *  Function:       print_hex_m: 
+ *
+*/
 void print_hex_m(char *m, unsigned char* arr, int len)
 {
     int i;
@@ -44,6 +58,11 @@ void print_hex_m(char *m, unsigned char* arr, int len)
     printf("\n");
 }
 
+
+/*
+ *  Function:       write2file: 
+ *
+*/
 void write2file(char *path2file, char *data, size_t datalen)
 {
     std::ofstream output_file;
@@ -54,6 +73,10 @@ void write2file(char *path2file, char *data, size_t datalen)
 }
 
 
+/*
+ *  Function:       read4file: 
+ *
+*/
 void read4file(char *path2file, char *data, size_t datalen)
 {
     std::ifstream input_file;
@@ -64,6 +87,10 @@ void read4file(char *path2file, char *data, size_t datalen)
 }
 
 
+/*
+ *  Function:       mapint2file: 
+ *
+*/
 void mapint2file(std::map<size_t, int> data, char *path2file) {
     std::ofstream   output_file;
     size_t          k;
@@ -80,6 +107,10 @@ void mapint2file(std::map<size_t, int> data, char *path2file) {
 }
 
 
+/*
+ *  Function:       mapsig2file: 
+ *
+*/
 void mapsig2file(std::map<size_t, signature> data, char *path2file) {
     std::ofstream               output_file;
 
@@ -92,6 +123,10 @@ void mapsig2file(std::map<size_t, signature> data, char *path2file) {
 }
 
 
+/*
+ *  Function:       mapseed2file: 
+ *
+*/
 void mapseed2file(std::map<key, value> data, char *path2file) {
     std::ofstream               output_file;
 
@@ -104,6 +139,10 @@ void mapseed2file(std::map<key, value> data, char *path2file) {
 }
 
 
+/*
+ *  Function:       file2mapint: 
+ *
+*/
 void file2mapint(std::map<size_t, int> *data, char *path2file) {
     std::ifstream   input_file;
     size_t          k;
@@ -120,6 +159,10 @@ void file2mapint(std::map<size_t, int> *data, char *path2file) {
 }
 
 
+/*
+ *  Function:       file2mapsig: 
+ *
+*/
 void file2mapsig(std::map<size_t, signature> *data, char *path2file) {
     std::ifstream   input_file;
     size_t          k;
@@ -137,6 +180,10 @@ void file2mapsig(std::map<size_t, signature> *data, char *path2file) {
     *data = data_tmp;
 }
 
+/*
+ *  Function:       file2mapseed: 
+ *
+*/
 void file2mapseed(std::map<key, value> *data, char *path2file) {
     std::ifstream   input_file;
     key             k;
@@ -155,11 +202,85 @@ void file2mapseed(std::map<key, value> *data, char *path2file) {
     *data = data_tmp;
 }
 
+
+/*
+ *  Function:       printMap: 
+ *
+*/
 template<typename Map>
 void printMap(const Map& map, char *title) {
     std::cout << title << "\n";
     for (const auto& p : map)
         std::cout<<p.first <<","<< p.second <<std::endl;
+}
+
+
+/*
+ *  Function:       setup_params: 
+ *
+*/
+void setup_params(char *path2log, size_t *sct_l1, size_t *sct_l2, double *tau_F){
+    size_t              l1, l2;
+    double              t_f;
+    std::ifstream       log_file;
+
+
+    printf("******** Selection of the system parameters ********\n");
+    printf("Choose the path to the audit logs:  ");
+    while (1) {
+        std::cin >> path2log;
+        log_file.open(path2log);
+        if (!log_file.is_open()) printf("\nERROR: path for logs is invalid!\nPlease try again: ");
+        else break;
+    }
+    printf("Select the number of epochs (SCT_L1):  ");
+    while (1) {
+        std::cin >> l1;
+        if (l1 < 1)    printf("\nERROR: L1 should be a positive integer!\nPlease try again: ");
+        else            break;
+    }
+    printf("Select the number of iterations per epoch (SCT_L2):  ");
+    while (1) {
+        std::cin >> l2;
+        if (l2 < 1)     printf("\nERROR: L2 should be a positive integer!\nPlease try again: ");
+        else            break;
+    }
+    printf("Select the failure rate (T_F):  ");
+    while (1) {
+        std::cin >> t_f;
+        if (t_f < 0 || t_f >1) printf("\nERROR: T_F rate should be comprised between 0 and 1!\nPlease try again: ");
+        else break;
+    }
+    std::cout << "\n";
+
+    *sct_l1 = l1;
+    *sct_l2 = l2;
+    *tau_F = t_f;
+}
+
+
+/*
+ *  Function:       save_pk: 
+ *
+*/
+void save_pk(char *root_path, public_key pk)
+{
+    char pk_path[100] = { 0 };
+
+
+    memset(pk_path, 0, sizeof(pk_path));
+    sprintf(pk_path, "%s/pk/Y", root_path);
+    write2file(pk_path, (char*) &pk.Y, sizeof(pk.Y));
+    sprintf(pk_path, "%s/pk/s_A", root_path);
+    write2file(pk_path, (char*) pk.s_A, sizeof(pk.s_A));
+    sprintf(pk_path, "%s/pk/R_A", root_path);
+    write2file(pk_path, (char*) pk.R_A, sizeof(pk.R_A));
+    sprintf(pk_path, "%s/pk/failed_indices", root_path);
+    mapint2file(pk.failed_indices, pk_path);
+    sprintf(pk_path, "%s/pk/failed_sigs", root_path);
+    mapsig2file(pk.failed_sigs, pk_path);
+    sprintf(pk_path, "%s/pk/seeds", root_path);
+    mapseed2file(pk.X_i, pk_path);
 }
 
 #endif

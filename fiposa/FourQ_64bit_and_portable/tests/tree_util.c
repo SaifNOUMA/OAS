@@ -22,25 +22,22 @@
 ECCRYPTO_STATUS seed_traverse(uint8_t *root, int h_0, size_t i_0,
                               uint8_t *x_hi, int h, size_t i)
 {
-    int     depth, index, start_index, coverage;
-    uint8_t xp[SEED_SIZE], x0[SEED_SIZE];
+    int     j, depth, index, start_index, coverage;
+    uint8_t x0[SEED_SIZE], xp[SEED_SIZE];
 
 
-    if (h_0 == h) {
-        if (i_0 == i) {
-            memmove(x_hi, root, SEED_SIZE);
-            return ECCRYPTO_SUCCESS;
-        } else {
-            return ECCRYPTO_ERROR;
-        }
+    if (h_0 == h && i_0 == i) {
+        memmove(x_hi, root, SEED_SIZE);
+        return ECCRYPTO_SUCCESS;
     }
+
     depth       = h - h_0;
     coverage    = 1 << depth;
     start_index = 1;
     index       = i - (i_0 - 1) * (1 << depth);
     memmove(xp, root, SEED_SIZE);
 
-    for (int j = 1 ; j <= depth - 1 ; j++) {
+    for (j = 1 ; j <= depth - 1 ; j++) {
         coverage = coverage / 2;
 
         if (index < start_index + coverage) {
@@ -67,22 +64,19 @@ ECCRYPTO_STATUS seed_traverse(uint8_t *root, int h_0, size_t i_0,
  *
  * 
  * root             root the seed tree
- * i                index of the leaf
- * X_i              DS structure that contains the needed nodes to iterate through the leafs until reaching the leaf index "i"
+ * i                leaf index
+ * X_i              DS structure that contains the needed nodes to iterate through the leafs until we reach the leaf index "i"
  * 
 */
 ECCRYPTO_STATUS seed_optimizer(uint8_t *root, size_t i, DS *X_i, size_t depth)
 {
-    DS                      X_disclosed;
-    std::bitset<30>         I(i);
     int                     displacement = 0, start_index, end_index, h, i_h;
     uint8_t                 xh[SEED_SIZE];
     struct key              k;
     struct value            v;
+    DS                      X_ds;
+    std::bitset<30>         I(i);
     
-    // printf("SEED OPTIMIZER: i = %ld ; depth =  ; %ld", i, depth);
-    // for (int index = depth ; index >= 0 ; index--) std::cout <<I[index] << " ";
-    // printf("\n\n");
 
     for (int index = depth ; index >= 0 ; index--) {
         if (I[index]) {
@@ -92,11 +86,11 @@ ECCRYPTO_STATUS seed_optimizer(uint8_t *root, size_t i, DS *X_i, size_t depth)
             v.index     = (displacement / (1 << index)) + 1;
             seed_traverse(root, 0, 1, xh, v.height, v.index);
             memmove(v.parent_node, xh, SEED_SIZE);
-            X_disclosed.insert( { k,v } );
+            X_ds.insert( { k , v } );
             displacement += (1 << index);
         }
     }
-    *X_i = X_disclosed;
+    *X_i = X_ds;
 
 
     return ECCRYPTO_SUCCESS;
@@ -109,8 +103,8 @@ ECCRYPTO_STATUS seed_optimizer(uint8_t *root, size_t i, DS *X_i, size_t depth)
  *
  * 
  * root             root the seed tree
- * i                index of the leaf
- * X_i              DS structure that contains the needed nodes to iterate through the leafs until reaching the leaf index "i"
+ * i                leaf index
+ * X_i              DS structure that contains the needed nodes to iterate through the leafs until we reach the leaf index "i"
  * 
 */
 ECCRYPTO_STATUS retrieve_seed(uint8_t *seed, size_t i, DS X_i, size_t depth)

@@ -110,12 +110,11 @@ endif
 OBJECTS=eccp2.o eccp2_no_endo.o eccp2_core.o $(ASM_OBJECTS) crypto_util.o schnorrq.o hash_to_curve.o kex.o sha512.o random.o 
 OBJECTS_FP_TEST=fp_tests.o $(OBJECTS) test_extras.o 
 OBJECTS_ECC_TEST=ecc_tests.o $(OBJECTS) test_extras.o 
-OBJECTS_CRYPTO_TEST=crypto_tests.o $(OBJECTS) test_extras.o 
 OBJECTS_FIPOSA=FIPOSA.o $(OBJECTS) test_extras.o
 OBJECTS_FIPOSA_audit=FIPOSA_audit.o $(OBJECTS) test_extras.o
-OBJECTS_ALL=$(OBJECTS) $(OBJECTS_FP_TEST) $(OBJECTS_ECC_TEST) $(OBJECTS_CRYPTO_TEST) $(OBJECTS_FIPOSA) $(OBJECTS_FIPOSA_audit)
+OBJECTS_ALL=$(OBJECTS) $(OBJECTS_FP_TEST) $(OBJECTS_ECC_TEST) $(OBJECTS_FIPOSA) $(OBJECTS_FIPOSA_audit)
 
-all: FIPOSA FIPOSA_audit crypto_test ecc_test fp_test $(SHARED_LIB_O)
+all: FIPOSA FIPOSA_audit ecc_test fp_test $(SHARED_LIB_O)
 
 ifeq "$(SHARED_LIB)" "TRUE"
     $(SHARED_LIB_O): $(OBJECTS)
@@ -127,9 +126,6 @@ FIPOSA: $(OBJECTS_FIPOSA)
 
 FIPOSA_audit: $(OBJECTS_FIPOSA_audit)
 	g++ -o FIPOSA_audit $(OBJECTS_FIPOSA_audit) $(ARM_SETTING) -lssl -lcrypto
-
-crypto_test: $(OBJECTS_CRYPTO_TEST)
-	$(CC) -o crypto_test $(OBJECTS_CRYPTO_TEST) $(ARM_SETTING)
 
 ecc_test: $(OBJECTS_ECC_TEST)
 	$(CC) -o ecc_test $(OBJECTS_ECC_TEST) $(ARM_SETTING)
@@ -180,9 +176,6 @@ random.o: ../random/random.c
 test_extras.o: tests/test_extras.c
 	$(CC) $(CFLAGS) tests/test_extras.c
 
-crypto_tests.o: tests/crypto_tests.c
-	$(CC) $(CFLAGS) tests/crypto_tests.c
-
 ecc_tests.o: tests/ecc_tests.c
 	$(CC) $(CFLAGS) tests/ecc_tests.c
 
@@ -190,7 +183,7 @@ fp_tests.o: tests/fp_tests.c
 	$(CC) $(CFLAGS) tests/fp_tests.c
 
 FIPOSA.o: tests/FIPOSA.c
-	g++ $(CFLAGS) tests/FIPOSA.c -lssl -lcrypto
+	g++ $(CFLAGS) tests/FIPOSA.c -lssl -lcrypto -DINFO
 
 FIPOSA_audit.o: tests/FIPOSA_audit.c
 	g++ $(CFLAGS) tests/FIPOSA_audit.c -lssl -lcrypto
@@ -198,4 +191,4 @@ FIPOSA_audit.o: tests/FIPOSA_audit.c
 .PHONY: clean
 
 clean:
-	rm -rf $(SHARED_LIB_TARGET) crypto_test ecc_test fp_test *.o AMD64/consts.s FIPOSA FIPOSA_audit
+	rm -rf $(SHARED_LIB_TARGET) ecc_test fp_test *.o AMD64/consts.s FIPOSA FIPOSA_audit

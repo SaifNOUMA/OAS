@@ -19,7 +19,7 @@ The repository includes the following implementations:
 
 ## Quick Start
 
-One can quickly test the auditing tools by first generate a set of log entries in [](datagen/). Then, build and run the chosen variant by the following the instructions mentioned in the specific folder.
+One can quickly test the auditing tools by first generate a set of log entries in [`DataGen`](datagen/). Then, build and run the chosen variant by the following the instructions mentioned in the specific folder.
 
 ## License
 

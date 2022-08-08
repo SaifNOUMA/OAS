@@ -108,14 +108,11 @@ else
 endif 
 endif
 OBJECTS=eccp2.o eccp2_no_endo.o eccp2_core.o $(ASM_OBJECTS) crypto_util.o schnorrq.o hash_to_curve.o kex.o sha512.o random.o 
-OBJECTS_FP_TEST=fp_tests.o $(OBJECTS) test_extras.o 
-OBJECTS_ECC_TEST=ecc_tests.o $(OBJECTS) test_extras.o 
-OBJECTS_CRYPTO_TEST=crypto_tests.o $(OBJECTS) test_extras.o 
-OBJECTS_SOCOSA=SOCOSA.o $(OBJECTS) test_extras.o
-OBJECTS_SOCOSA_audit=SOCOSA_audit.o $(OBJECTS) test_extras.o
-OBJECTS_ALL=$(OBJECTS) $(OBJECTS_FP_TEST) $(OBJECTS_ECC_TEST) $(OBJECTS_CRYPTO_TEST) $(OBJECTS_SOCOSA) $(OBJECTS_SOCOSA_audit)
+OBJECTS_SOCOSA=SOCOSA.o $(OBJECTS)
+OBJECTS_SOCOSA_audit=SOCOSA-audit.o $(OBJECTS)
+OBJECTS_ALL=$(OBJECTS) $(OBJECTS_SOCOSA) $(OBJECTS_SOCOSA_audit)
 
-all: SOCOSA SOCOSA_audit crypto_test ecc_test fp_test $(SHARED_LIB_O)
+all: SOCOSA SOCOSA-audit $(SHARED_LIB_O)
 
 ifeq "$(SHARED_LIB)" "TRUE"
     $(SHARED_LIB_O): $(OBJECTS)
@@ -125,17 +122,8 @@ endif
 SOCOSA: $(OBJECTS_SOCOSA)
 	g++ -o SOCOSA $(OBJECTS_SOCOSA) $(ARM_SETTING) -lssl -lcrypto
 
-SOCOSA_audit: $(OBJECTS_SOCOSA_audit)
+SOCOSA-audit: $(OBJECTS_SOCOSA_audit)
 	g++ -o SOCOSA_audit $(OBJECTS_SOCOSA_audit) $(ARM_SETTING) -lssl -lcrypto
-
-crypto_test: $(OBJECTS_CRYPTO_TEST)
-	$(CC) -o crypto_test $(OBJECTS_CRYPTO_TEST) $(ARM_SETTING)
-
-ecc_test: $(OBJECTS_ECC_TEST)
-	$(CC) -o ecc_test $(OBJECTS_ECC_TEST) $(ARM_SETTING)
-
-fp_test: $(OBJECTS_FP_TEST)
-	$(CC) -o fp_test $(OBJECTS_FP_TEST) $(ARM_SETTING)
 
 eccp2_core.o: eccp2_core.c AMD64/fp_x64.h
 	$(CC) $(CFLAGS) eccp2_core.c
@@ -177,25 +165,13 @@ sha512.o: ../sha512/sha512.c
 random.o: ../random/random.c
 	$(CC) $(CFLAGS) ../random/random.c
 
-test_extras.o: tests/test_extras.c
-	$(CC) $(CFLAGS) tests/test_extras.c
-
-crypto_tests.o: tests/crypto_tests.c
-	$(CC) $(CFLAGS) tests/crypto_tests.c
-
-ecc_tests.o: tests/ecc_tests.c
-	$(CC) $(CFLAGS) tests/ecc_tests.c
-
-fp_tests.o: tests/fp_tests.c
-	$(CC) $(CFLAGS) tests/fp_tests.c
-
 SOCOSA.o: tests/SOCOSA.c
-	g++ $(CFLAGS) tests/SOCOSA.c -lssl -lcrypto
+	g++ $(CFLAGS) tests/SOCOSA.c -lssl -lcrypto -DINFO -DDEBUG
 
-SOCOSA_audit.o: tests/SOCOSA_audit.c
-	g++ $(CFLAGS) tests/SOCOSA_audit.c -lssl -lcrypto
+SOCOSA-audit.o: tests/SOCOSA-audit.c
+	g++ $(CFLAGS) tests/SOCOSA-audit.c -lssl -lcrypto -DINFO -DDEBUG
 
 .PHONY: clean
 
 clean:
-	rm -rf $(SHARED_LIB_TARGET) crypto_test ecc_test fp_test *.o AMD64/consts.s SOCOSA SOCOSA_audit
+	rm -rf $(SHARED_LIB_TARGET) *.o AMD64/consts.s SOCOSA SOCOSA-audit

@@ -4,11 +4,10 @@
 #include "time.h"
 #include "conf.h"
 #include "util.c"
-#include "tree_util.c"
-#include "fiposa_util.c"
-#include "fiposa-scheme.c"
+#include "FIPOSA-util.c"
+#include "FIPOSA-app.c"
+#include "FIPOSA-sgn.c"
 #include <string.h>
-// #define INFO
 
 
 using namespace std;
@@ -42,7 +41,6 @@ int main(int argc, char *argv[])
     }
 #ifdef INFO
     printf("INFO:  key generation Completed.\n");
-    // ----------------------------------------------Signature generation-------------------------------------------------------------------
     printf("\nINFO:  Signature generation is about to start ...\n");
 #endif
     sprintf(sig_path, "%s/sig.txt", root_path);
@@ -78,7 +76,6 @@ int main(int argc, char *argv[])
     printf("INFO:  Signature generation (for T messages) successfully finished in %.2fs\n", sign_t / CLOCKS_PER_SEC );
     printf("INFO:  Average signing time (per message) = %.2fus\n", (sign_t * 1000 * 1000) / (CLOCKS_PER_SEC * SCT_T));
 
-    // ----------------------------------------------Signature verification-------------------------------------------------------------------
     printf("\nINFO:  Signature verification is about to start ...\n");
 #endif
     log_file.open(path2log);

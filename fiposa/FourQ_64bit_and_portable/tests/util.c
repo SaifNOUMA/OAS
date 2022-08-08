@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <fstream>
-#include <ctime>
+#include "time.h"
 #include <cstring>
 
 
@@ -281,6 +281,72 @@ void save_pk(char *root_path, public_key pk)
     mapsig2file(pk.failed_sigs, pk_path);
     sprintf(pk_path, "%s/pk/seeds", root_path);
     mapseed2file(pk.X_i, pk_path);
+}
+
+
+/*
+ *  Function:       setup_audit_params: 
+ *
+*/
+void setup_audit_params(char *path2log, size_t *sct_l1, size_t *sct_l2){
+    size_t              l1, l2;
+    double              t_f;
+    std::ifstream       log_file;
+
+
+    printf("******** Selection of the system parameters ********\n");
+    printf("Choose the path to the audit logs:  ");
+    while (1) {
+        std::cin >> path2log;
+        log_file.open(path2log);
+        if (!log_file.is_open()) printf("\nERROR: path for logs is invalid!\nPlease try again: ");
+        else break;
+    }
+    printf("Select the number of epochs (SCT_L1):  ");
+    while (1) {
+        std::cin >> l1;
+        if (l1 < 1)    printf("\nERROR: L1 should be a positive integer!\nPlease try again: ");
+        else            break;
+    }
+    printf("Select the number of iterations per epoch (SCT_L2):  ");
+    while (1) {
+        std::cin >> l2;
+        if (l2 < 1)     printf("\nERROR: L2 should be a positive integer!\nPlease try again: ");
+        else            break;
+    }
+    std::cout << "\n";
+
+    *sct_l1 = l1;
+    *sct_l2 = l2;
+}
+
+
+/*
+ *  Function:       read_pk: 
+ *
+*/
+void read_pk(char *root_path, public_key *pk)
+{
+    char pk_path[100] = { 0 };
+
+
+    sprintf(pk_path, "%s/pk/Y", root_path);
+    read4file(pk_path, (char*) pk->Y, sizeof(pk->Y));
+
+    sprintf(pk_path, "%s/pk/s_A", root_path);
+    read4file(pk_path, (char*) pk->s_A, sizeof(pk->s_A));
+    
+    sprintf(pk_path, "%s/pk/R_A", root_path);
+    read4file(pk_path, (char*) pk->R_A, sizeof(pk->R_A));
+
+    sprintf(pk_path, "%s/pk/failed_indices", root_path);
+    file2mapint(&pk->failed_indices, pk_path);
+    
+    sprintf(pk_path, "%s/pk/failed_sigs", root_path);
+    file2mapsig(&pk->failed_sigs, pk_path);
+    
+    sprintf(pk_path, "%s/pk/seeds", root_path);
+    file2mapseed(&pk->X_i, pk_path);
 }
 
 #endif

@@ -6,12 +6,11 @@
 #include "../FourQ_api.h"
 #include "../FourQ_params.h"
 #include "../FourQ.h"
-#include "test_extras.h"
 #include "time.h"
 
-#include "conf.h"
 #include "util.c"
-#include "tree_util.c"
+#include "conf.h"
+#include "SOCOSA-util.c"
 
 
 

@@ -5,11 +5,10 @@
 #include "../FourQ_params.h"
 #include "../FourQ.h"
 #include "time.h"
-#include "test_extras.h"
 
 #include "conf.h"
 #include "util.c"
-#include "tree_util.c"
+#include "FIPOSA-util.c"
 
 
 /*

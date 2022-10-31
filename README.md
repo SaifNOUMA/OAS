@@ -1,6 +1,6 @@
-# OSA
-**Optimal Signatures for Audit (OSA)** implements cryptographic auditing tools based on FourQ, a high-security, high-performance elliptic curve that targets the 128-bit security level.
-As a high level depiction, OSA provides utility and cryptographic functions for signing, verification and audit investigation of log entries. Additionally, it provides data generation functionality to generate a set of log entries.
+# OSLO
+**Optimal Signatures for Secure Logging (OSLO)** implements cryptographic secure logging tools based on FourQ, a high-security, high-performance elliptic curve that targets the 128-bit security level.
+As a high level depiction, OSLO provides utility and cryptographic functions for signing, verification and investigation of log entries. Additionally, it provides data generation functionality to generate a set of log entries.
 
 
 ## Prerequisites
@@ -12,18 +12,18 @@ As a high level depiction, OSA provides utility and cryptographic functions for 
 
 The repository includes the following implementations:
 * [`DataGen`](datagen/): contains utility functions to generate a set of random log entries
-* [`FIPOSA`](fiposa/): contains the implementation of our first scheme FIne-grained Post-audit OSA (FIPOSA).
-* [`SOCOSA`](socosa/): contains the implementation of our second Signer-Optimal Coarse-grained OSA (SOCOSA).
+* [`FIPOSLO`](fiposlo/): contains the implementation of our first scheme FIne-grained Public-key OSLO (FIPOSLO).
+* [`SOCOSLO`](socoslo/): contains the implementation of our second Signer-Optimal Coarse-grained OSLO (SOCOSLO).
 
 
 
 ## Quick Start
 
-One can quickly test the auditing tools by first generate a set of log entries in [`DataGen`](datagen/). Then, build and run the chosen variant by the following the instructions mentioned in the specific folder.
+One can quickly test the cryptographic tools by first generate a set of log entries in [`DataGen`](datagen/). Then, build and run the chosen variant by the following the instructions mentioned in the specific folder.
 
 ## License
 
-**OSA** is licensed under Apache 2.0 license; see [`License`](LICENSE) for details.
+**OSLO** is licensed under Apache 2.0 license; see [`License`](LICENSE) for details.
 
 
 ## Important Note

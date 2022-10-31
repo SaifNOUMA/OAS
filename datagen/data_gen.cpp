@@ -42,7 +42,7 @@ int main (int argc, char *argv[])
     output_file.close();
 
     printf("DEBUG: Data generation passed successfully in %.2f s.\n", ((double) (gen_time)) / (CLOCKS_PER_SEC) );
-    printf("DEBUG: Storing audit data passed successfully in %.2f s.\n", ((double) (store_time)) / (CLOCKS_PER_SEC) );
+    printf("DEBUG: Storing log entries passed successfully in %.2f s.\n", ((double) (store_time)) / (CLOCKS_PER_SEC) );
 
 
    return 0; 
